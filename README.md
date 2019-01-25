@@ -29,7 +29,7 @@ Las acciones es cuando spark ya lo hace.
 Te voy a dar 2 RDD
 
 rdd test  El objetivo es consultar el nombre padre en el RDD rdd catalogo y obtener la cedula en los casos que coincida
-
+```
 -----------------------------------------------------------------------------------------------------
 cedula      |nombre                               |cedulapadre  |nombrepadre                     
 -----------------------------------------------------------------------------------------------------
@@ -39,10 +39,10 @@ cedula      |nombre                               |cedulapadre  |nombrepadre
 1803599826	|CHACHA GUANGASI MARIA PIEDAD	 	  |              |**********************
 1803599917	|VELASTEGUI LUZURIAGA MONICA ISABEL	  | 	         |VELASTEGUI ANDALUZ RODRIGO ABEL
 -----------------------------------------------------------------------------------------------------
-
+```
 
 rdd_catalogo = Tiene un listado de cedulas y nombres
-
+```
 -----------------------------------------------------------------------------------------------------
 cedula      |nombre                    
 -----------------------------------------------------------------------------------------------------
@@ -52,7 +52,7 @@ cedula      |nombre
 1600078586	|BARROSO AMAN LUIS ERNESTO
 1801032010	|VELASTEGUI ANDALUZ RODRIGO ABEL
 -----------------------------------------------------------------------------------------------------
-
+```
 
 Para esto considero que puedes usar 2 funciones map o faltMap y filter.
 
