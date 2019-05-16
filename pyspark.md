@@ -2,7 +2,7 @@
 
 # 1.- Leer un archivo como RDD y guardarlo como parquet
 
-```` 
+````python 
 %pyspark
 
 ## Lee el archivo plano y les asigna un RowNumber
@@ -18,7 +18,8 @@ df.coalesce(1).write.save("hdfs://192.168.0.225:8020/user/admin/data/iess_number
 
 # 2.- Quitar los saltos de linea de un archivo
 
-````
+```python
+
 %pyspark
 
 from pyspark.conf import SparkConf
