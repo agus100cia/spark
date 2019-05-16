@@ -63,6 +63,8 @@ Te dejo un par de ejemplos en scala:
 
 MAP:
 
+````scala
+
 val textFile = sc.textFile("hdfs://...")
 val counts = textFile.flatMap(line => line.split(" "))
                  .map(word => (word, 1))
@@ -72,4 +74,7 @@ counts.saveAsTextFile("hdfs://...");
 Te dejo el link oficial:
 
 https://spark.apache.org/examples.html
+
+````
+
 
