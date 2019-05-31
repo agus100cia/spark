@@ -54,4 +54,11 @@ todo.saveAsTextFile('hdfs://192.168.0.225:8020/user/admin/data/iess_partes/part1
 
 ```` 
 
+# 3.- Lee un archivo como RDD y lo guarda partido en 5280 partes
+
+````
+rddData = sc.textFile("hdfs://192.168.0.225:8020/user/admin/data/folder",5280);
+rddData.saveAsTextFile("hdfs://192.168.0.225:8020/user/admin/data/process/folder1");
+
+```` 
 
