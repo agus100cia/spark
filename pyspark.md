@@ -62,3 +62,27 @@ rddData.saveAsTextFile("hdfs://192.168.0.225:8020/user/admin/data/process/folder
 
 ```` 
 
+# 4.- Aplicar una expresion regular como filtro en un RDD
+
+```` 
+import re
+
+for x in range(34,35):
+    cadena = ""
+    if len(str(x)) == 1: cadena = "000" + str(x) 
+    elif len(str(x)) == 2: cadena = "00" + str(x)
+    elif len(str(x)) == 3: cadena = "0" + str(x)
+    elif len(str(x)) == 4: cadena =  str(x)
+    rutain = "hdfs://192.168.0.225:8020/user/admin/data/process/data3/part-0" + cadena
+    rutaout = "hdfs://192.168.0.225:8020/user/admin/data/process/data3/part-0" + cadena
+    rdd = sc.textFile(rutain)
+    
+    regex_num = re.compile("^\d{10};")
+    rdd1 = rdd.filter(lambda x : not regex_num.match(x))
+    rdd2 = rdd1.take(rdd1.count())
+    
+    for y in rdd2:
+       print(y + "\n")
+       
+ ```` 
+ 
