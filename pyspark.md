@@ -86,3 +86,61 @@ for x in range(34,35):
        
  ```` 
  
+ # 5.- Poner en producción un programa en PySpark
+ 
+ 5.1.- Crear un script en el sistema opertivo
+ 
+ ````
+ #nano program.py
+ 
+ `````
+ 
+ ```` 
+from pyspark.conf import SparkConf
+from pyspark import SparkContext
+from pyspark.sql import SparkSession
+
+import os
+import re
+
+
+spark = SparkSession.builder.appName("PySparklProgram").getOrCreate()
+sc = spark.sparkContext
+
+for x in range(2861,5280):
+
+    cadena = ""
+    if len(str(x)) == 1: cadena = "000" + str(x)
+    elif len(str(x)) == 2: cadena = "00" + str(x)
+    elif len(str(x)) == 3: cadena = "0" + str(x)
+    elif len(str(x)) == 4: cadena =  str(x)
+
+    rutain = "hdfs://192.168.0.225:8020/user/admin/data/process/data/part-0" + cadena
+    rutaout = "hdfs://192.168.0.225:8020/user/admin/data/process/data2/part-0" + cadena
+
+
+
+    rdd =  sc.wholeTextFiles(rutain)\
+    .map(lambda x: re.sub(r'(?!(([^"]*"){2})*[^"]*$),', ' ', x[1].replace("\n", "|"))  )\
+
+    ## Se reeplaza 12,00| por 12,00;
+    rddSinBL = rdd
+
+    rddSinBL.saveAsTextFile(rutaout)
+    
+ `````
+ 
+ 5.2.- Ejecutar vía consola con Spark Submit
+ 
+ ```` 
+ spark-submit \
+--master yarn-client \
+--num-executors 4 \
+--executor-memory 1G \
+--executor-cores 2 \
+--driver-memory 1G \
+program.py
+
+```` 
+
+
