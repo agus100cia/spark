@@ -143,4 +143,17 @@ program.py
 
 ```` 
 
+5.3.- Para ejecutarlo en modo background y escribir los logs en un archivo
+
+```` 
+spark-submit \
+--master yarn-client \
+--num-executors 4 \
+--executor-memory 1G \
+--executor-cores 2 \
+--driver-memory 1G \
+program.py 2> errorOutput.log > output.log &
+
+````` 
+
 
