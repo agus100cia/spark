@@ -56,8 +56,7 @@ todo.saveAsTextFile('hdfs://192.168.0.225:8020/user/admin/data/iess_partes/part1
 
 # 3.- Lee un archivo como RDD y lo guarda partido en 5280 partes
 
-````
-%pyspark
+````python 
 
 rddData = sc.textFile("hdfs://192.168.0.225:8020/user/admin/data/folder",5280);
 rddData.saveAsTextFile("hdfs://192.168.0.225:8020/user/admin/data/process/folder1");
@@ -66,8 +65,7 @@ rddData.saveAsTextFile("hdfs://192.168.0.225:8020/user/admin/data/process/folder
 
 # 4.- Aplicar una expresion regular como filtro en un RDD
 
-```` 
-%pyspark
+```` python 
 
 import re
 
@@ -94,13 +92,12 @@ for x in range(34,35):
  
  5.1.- Crear un script en el sistema opertivo
  
- ````
+ ````shell
  #nano program.py
  
  `````
  
- ```` 
- %pyspark
+ ```` python 
  
 from pyspark.conf import SparkConf
 from pyspark import SparkContext
@@ -138,8 +135,7 @@ for x in range(2861,5280):
  
  5.2.- Ejecutar vía consola con Spark Submit
  
- ```` 
- %shell 
+ ```` shell
  
  spark-submit \
 --master yarn-client \
@@ -153,8 +149,7 @@ program.py
 
 5.3.- Para ejecutarlo en modo background y escribir los logs en un archivo
 
-```` 
-%shell 
+```` shell
 
 spark-submit \
 --master yarn-client \
