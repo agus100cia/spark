@@ -174,3 +174,9 @@ rddcedulas.count()
 
 ```` 
 
+## 7.- Ver todas las variables de configuración de Spark Context
+
+```  
+for item in sorted(sc._conf.getAll()): print(item)
+
+```
