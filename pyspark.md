@@ -163,14 +163,13 @@ program.py 2> errorOutput.log > output.log &
 
 ## 6.- Leer archivos desde Azure
 
-````
+````python
+
 from pyspark.sql.types import *
 
-rutaiess = "wasbs:///example/data/iess/original/IESS_Tota_utf8l.txt"
-rutacedulas = "wasbs:///example/data/iess/cedulas/cedulas.txt"
-#rddiess = sc.textFile(rutaiess)
-#rddiess.count()
-rddcedulas = sc.textFile(rutacedulas)
+ruta = "wasbs:///example/data/folder/original/archivo.txt"
+
+rddcedulas = sc.textFile(ruta)
 rddcedulas.count()
 
 ```` 
