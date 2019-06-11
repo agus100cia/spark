@@ -180,3 +180,14 @@ rddcedulas.count()
 for item in sorted(sc._conf.getAll()): print(item)
 
 ```
+
+## 8.- Spark SQL
+
+``` 
+rutaIess = "hdfs://192.168.0.225:8020/user/admin/data/iess"
+rdd = sc.textFile(rutaIess).zipWithIndex().filter(lambda x: x[1]>=1)
+df = rdd.toDF(["texto","id"])
+df.createOrReplaceTempView("iess_texto")
+spark.sql("SELECT * FROM iess_texto").show()
+```` 
+
