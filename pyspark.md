@@ -191,3 +191,20 @@ df.createOrReplaceTempView("tabla")
 spark.sql("SELECT * FROM tabla").show()
 ```` 
 
+## 9.- RDD save into HIVE
+
+```python
+from pyspark import SparkContext, SparkConf
+from pyspark.sql import SparkSession, HiveContext
+sc.setSystemProperty("hive.metastore.uris", "thrift://namenode:9083")
+sparkSession = (SparkSession
+                .builder
+                .appName('example-pyspark-read-and-write-from-hive')
+                .enableHiveSupport()
+                .getOrCreate())
+rutaIess = "hdfs://192.168.0.225:8020/user/admin/data/iess"
+rdd = sc.textFile(rutaIess).zipWithIndex().filter(lambda x: x[1]>=1)
+df = rdd.toDF(["texto","id"])
+df.write.saveAsTable('iess.iess_texto2')
+
+```` 
