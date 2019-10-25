@@ -7,11 +7,11 @@
 
 ## Lee el archivo plano y les asigna un RowNumber
 ## Luego es filtrado por las lineas mayores a 0
-rdd = sc.textFile("hdfs://192.168.0.225:8020/user/admin/data/folder/fuente.txt").zipWithIndex().filter(lambda x: x[1]>=0)
+rdd = sc.textFile("hdfs://ip-servidor:8020/user/admin/data/folder/fuente.txt").zipWithIndex().filter(lambda x: x[1]>=0)
 ## Se convierte el RDD a DF asignando un nombre a cada columna
 df = rdd.toDF(["cadena","id"])
 ## Guarda el DF como parquet
-df.coalesce(1).write.save("hdfs://192.168.0.225:8020/user/admin/data/iess_number");  ##escribe como parquet
+df.coalesce(1).write.save("hdfs://ip-servidor:8020/user/admin/data/data_number");  ##escribe como parquet
 
 ```` 
 
@@ -32,7 +32,7 @@ import re
 ##Lee todo el archivo como una sola cadena de texto
 ##Reemplaza los saltos de linea por |
 
-rdd = sc.wholeTextFiles("hdfs://192.168.0.225:8020/user/admin/data/fuente/limpio/part-00000")\
+rdd = sc.wholeTextFiles("hdfs://ip-server:8020/user/admin/data/fuente/limpio/part-00000")\
     .map(lambda x: re.sub(r'(?!(([^"]*"){2})*[^"]*$),', ' ', x[1].replace("\r\n", "|"))  )\
     
 ## Se reeplaza 12,00| por 12,00;
@@ -50,7 +50,7 @@ todo = matriz.map(lambda x: ";".join(x))
     
  
 
-todo.saveAsTextFile('hdfs://192.168.0.225:8020/user/admin/data/iess_partes/part1-00000')
+todo.saveAsTextFile('hdfs://ip-server:8020/user/admin/data/data_partes/part1-00000')
 
 ```` 
 
@@ -58,8 +58,8 @@ todo.saveAsTextFile('hdfs://192.168.0.225:8020/user/admin/data/iess_partes/part1
 
 ````python 
 
-rddData = sc.textFile("hdfs://192.168.0.225:8020/user/admin/data/folder",5280);
-rddData.saveAsTextFile("hdfs://192.168.0.225:8020/user/admin/data/process/folder1");
+rddData = sc.textFile("hdfs://ip-server:8020/user/admin/data/folder",5280);
+rddData.saveAsTextFile("hdfs://ip-server:8020/user/admin/data/process/folder1");
 
 ```` 
 
@@ -75,8 +75,8 @@ for x in range(34,35):
     elif len(str(x)) == 2: cadena = "00" + str(x)
     elif len(str(x)) == 3: cadena = "0" + str(x)
     elif len(str(x)) == 4: cadena =  str(x)
-    rutain = "hdfs://192.168.0.225:8020/user/admin/data/process/data3/part-0" + cadena
-    rutaout = "hdfs://192.168.0.225:8020/user/admin/data/process/data3/part-0" + cadena
+    rutain = "hdfs://ip-server:8020/user/admin/data/process/data3/part-0" + cadena
+    rutaout = "hdfs://ip-server:8020/user/admin/data/process/data3/part-0" + cadena
     rdd = sc.textFile(rutain)
     
     regex_num = re.compile("^\d{10};")
@@ -118,8 +118,8 @@ for x in range(2861,5280):
     elif len(str(x)) == 3: cadena = "0" + str(x)
     elif len(str(x)) == 4: cadena =  str(x)
 
-    rutain = "hdfs://192.168.0.225:8020/user/admin/data/process/data/part-0" + cadena
-    rutaout = "hdfs://192.168.0.225:8020/user/admin/data/process/data2/part-0" + cadena
+    rutain = "hdfs://ip-server:8020/user/admin/data/process/data/part-0" + cadena
+    rutaout = "hdfs://ip-server:8020/user/admin/data/process/data2/part-0" + cadena
 
 
 
@@ -184,7 +184,7 @@ for item in sorted(sc._conf.getAll()): print(item)
 ## 8.- Spark SQL
 
 ```python 
-ruta = "hdfs://192.168.0.225:8020/user/admin/data/"
+ruta = "hdfs://ip-server:8020/user/admin/data/"
 rdd = sc.textFile(ruta).zipWithIndex().filter(lambda x: x[1]>=1)
 df = rdd.toDF(["texto","id"])
 df.createOrReplaceTempView("tabla")
@@ -202,9 +202,9 @@ sparkSession = (SparkSession
                 .appName('example-pyspark-read-and-write-from-hive')
                 .enableHiveSupport()
                 .getOrCreate())
-rutaIess = "hdfs://192.168.0.225:8020/user/admin/data/iess"
+rutaIess = "hdfs://ip-server:8020/user/admin/data/iess"
 rdd = sc.textFile(rutaIess).zipWithIndex().filter(lambda x: x[1]>=1)
 df = rdd.toDF(["texto","id"])
-df.write.saveAsTable('iess.iess_texto2')
+df.write.saveAsTable('esquema.tabla_texto2')
 
 ```` 
