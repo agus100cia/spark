@@ -9,4 +9,8 @@ https://www.jetbrains.com/es-es/pycharm/download/#section=mac
 
 2.- View==>Tools Windows ==>DB Browser
 
+# Integrar Spark con PyCharm
+
+Fuente: https://medium.com/parrot-prediction/integrating-apache-spark-2-0-with-pycharm-ce-522a6784886f
+
 
