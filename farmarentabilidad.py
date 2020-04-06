@@ -23,7 +23,7 @@ timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%
 
 ##SPARK
 vConf = SparkConf().\
-    setAppName("pyspark_farmarentabilidad").\
+    setAppName("pyspark_farmarentabilidad_{anio}_{mes}".format(anio=vanio,mes=vmes)).\
     set("spark.speculation","true")
 sc = SparkContext(conf=vConf)
 
@@ -141,6 +141,9 @@ dfRentabilidad2 = dfRentabilidad1.select(
     "fechacarga"
 )
 
-dfRentabilidad2.coalesce(2).write.mode("overwrite").partitionBy('anio', 'mes').saveAsTable("dwh.farmarentabilidad")
+vSQLDeletePartition = "ALTER TABLE dwh.farmarentabilidad DROP IF EXISTS PARTITION(anio={anio}, mes={mes})".format(anio=vanio,mes=vmes)
+hc.sql(vSQLDeletePartition)
+
+dfRentabilidad2.coalesce(2).write.mode("append").partitionBy('anio', 'mes').saveAsTable("dwh.farmarentabilidad")
 
 print("Listo Anio={anio} Mes={mes}".format(anio=vanio, mes=vmes))
