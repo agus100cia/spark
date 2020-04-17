@@ -65,7 +65,7 @@ def getDataFrame(hc):
                   "nombre, " \
                   "edad, " \
                   "telefono " \
-                  "from dwh.persona " \
+                  "from esquema.tabla " \
                   "limit 3"
     df = hc.sql(vSqlTabla)
     return df
