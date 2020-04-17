@@ -23,6 +23,7 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 password_provided = "clavesecreta" # This is input in the form of a string
 password = password_provided.encode() # Convert to type bytes
 salt = b'salt_' # CHANGE THIS - recommend using a key from os.urandom(16), must be of type bytes
+##salt = os.urandom(16)
 kdf = PBKDF2HMAC(
     algorithm=hashes.SHA256(),
     length=32,
