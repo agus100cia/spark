@@ -19,7 +19,7 @@ from pyspark.sql import HiveContext
 from pyspark.sql.functions import regexp_replace, col
 
 vConf = SparkConf(). \
-        setAppName("df01_dpa"). \
+        setAppName("pysparkapp"). \
         set("spark.speculation", "true").\
         set("spark.yarn.executor.memoryOverhead","2048").\
         set("spark.driver.memoryOverhead","2048").\
@@ -27,16 +27,16 @@ vConf = SparkConf(). \
 sc = SparkContext(conf=vConf)
 hc = HiveContext(sc)
 
-vSQlDs00 = "SELECT idrow, nombres, primerapellido, primernombre  FROM externo.ds01"
+vSQlDs00 = "SELECT id, field1, field2, field3  FROM schema.table"
 ds00 = hc.sql(vSQlDs00)
 ds00.printSchema()
 ds00.show(3)
 
 ds00.write.format('jdbc').options(
-      url='jdbc:mysql://nodo1/persona',
+      url='jdbc:mysql://ipserver/mysqlschema',
       driver='com.mysql.jdbc.Driver',
-      dbtable='ds00',
-      user='cloudera',
-      password='cliksoft').mode('overwrite').save()
+      dbtable='mysqltable',
+      user='mysqluser',
+      password='mysqlpassword').mode('overwrite').save()
 
 ## spark-submit --jars /path/mysql-jdbc.jar --master yarn script.py
