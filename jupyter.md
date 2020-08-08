@@ -23,10 +23,12 @@ Al ejecutar "pyspark" se abrirá Jupyter
 ```sh
 brew install jupyter
 pip3 install jupyter
+pip3 install pyspark
 ## Define variables de ambiente
-export SPARK_HOME=/Users/agus/DocsLocal/spark/spark-2.4.5-bin-hadoop2.7
+## export SPARK_HOME=/Users/agus/DocsLocal/spark/spark-2.4.5-bin-hadoop2.7
+export SPARK_HOME=/Users/agus/DocsLocal/spark/spark-3.0.0-bin-hadoop2.7
 export PATH=$PATH:$SPARK_HOME/bin
-export YARN_CONF_DIR=/Users/agus/DocsLocal/spark/spark-2.4.5-bin-hadoop2.7/conf
+## export YARN_CONF_DIR=/Users/agus/DocsLocal/spark/spark-2.4.5-bin-hadoop2.7/conf
 export PYSPARK_DRIVER_PYTHON=jupyter
 export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 pyspark
