@@ -52,5 +52,8 @@ C:\spark-3.0.0-bin-hadoop2.7\bin\pyspark
 ![img](https://github.com/agus100cia/spark/blob/master/Captura%20de%20Pantalla%202020-08-11%20a%20la(s)%2019.42.53.png)
 
 
+Continuar leyendo ...
+
+https://github.com/agus100cia/spark/blob/master/spark-install.md
 
 
