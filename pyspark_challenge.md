@@ -20,7 +20,8 @@ https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.cs
 
 ```python
 from pyspark import SparkContext, HiveContext
-sc = SparkContext().master("local[*]").appName("Spark-Challenge")
+vConf = SparkConf().setAppName("Spark-Challenge").setMaster("local[*]")
+sc = SparkContext(conf=vConf)
 hc = HiveContext(sc)
 ```
 - Lee el archivo CSV (Debes colocar la ruta donde se encuentra tu archivo):
