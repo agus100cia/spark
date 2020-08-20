@@ -92,4 +92,4 @@ NOTAS:
     
     hdfs://user/curso/examen/owid-covid-data.csv
     
-- Se deben conectar al nodo3 y crearse una carpeta con su nombre de usuario y ahí crear su script
+- Se deben conectar al nodo3 y crearse una carpeta con su nombre de usuario (Comando: mkdir amartinez) y ahí crear su script
