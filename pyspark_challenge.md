@@ -87,6 +87,9 @@ spark-submit --master yarn main.py
 
 ````
 
-NOTA: Para las personas que programen en Zeppelin o vayan a poner en producción su código, deben usar la ruta del HDFS para leer el archivo.
-
-hdfs://user/curso/examen/owid-covid-data.csv
+NOTAS: 
+- Para las personas que programen en Zeppelin o vayan a poner en producción su código, deben usar la ruta del HDFS para leer el archivo.
+    
+    hdfs://user/curso/examen/owid-covid-data.csv
+    
+- Se deben conectar al nodo3 y crearse una carpeta con su nombre de usuario y ahí crear su script
