@@ -40,7 +40,7 @@ https://archive.apache.org/dist/spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz
 - Crea una variable de ambiente SPARK_HOME=C:\spark-2.4.5-bin-hadoop2.7
 - Descarga winutils.exe desde https://github.com/steveloughran/winutils/blob/master/hadoop-3.0.0/bin/winutils.exe
 - Crea la carpeta C:\spark-2.4.5-bin-hadoop2.7\hadoop\bin
-- Crea una variable de ambiente llamada HADOOP_HOME=C:\spark-2.4.5-bin-hadoop2.7\hadoop\bin
+- Crea una variable de ambiente llamada HADOOP_HOME=C:\spark-2.4.5-bin-hadoop2.7\hadoop
 
 ## Comprueba la instalación
 
