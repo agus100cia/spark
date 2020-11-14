@@ -208,3 +208,12 @@ df = rdd.toDF(["texto","id"])
 df.write.saveAsTable('esquema.tabla_texto2')
 
 ```` 
+
+## 10.- Mostrar logs solo en caso de ERROR 
+
+```py
+spark = SparkSession.builder.appName('app').getOrCreate()
+spark.sparkContext.setLogLevel('ERROR')
+
+
+``` 
