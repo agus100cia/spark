@@ -29,3 +29,20 @@ df = spark.read.format("com.crealytics.spark.excel") \
 df.printSchema()
 df.repartition(1).write.mode("overwrite").saveAsTable("externo.apetito_riesgo_con_scores")
 spark.stop()
+
+
+
+
+### Si el excel supera los 300 Mb se debe agregar la opcion maxRowsInMemory
+## pyspark --packages com.github.zuinnote:spark-hadoopoffice-ds_2.11:1.0.4
+
+spark = SparkSession.builder.appName("readexcel").enableHiveSupport().getOrCreate()
+df = spark.read.format("com.crealytics.spark.excel") \
+.option("maxRowsInMemory",100000000) \
+.option("useHeader", "true") \
+.option("inferSchema", "true") \
+.option("sheetName", 'Sheet1') \
+.load("file:///home/admin/etl/externo/apetito_riesgo_con_scores.xlsx")
+df.printSchema()
+df.repartition(1).write.mode("overwrite").saveAsTable("externo.apetito_riesgo_con_scores")
+spark.stop()
