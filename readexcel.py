@@ -10,6 +10,14 @@
 # readexcel.py
 
 
+# spark-submit \
+# --packages com.github.zuinnote:spark-hadoopoffice-ds_2.11:1.0.4,com.crealytics:spark-excel_2.11:0.12.5 \
+# --jars spark-excel_2.11-0.12.2.jar,commons-collections4-4.3.jar,xmlbeans-3.1.0.jar,ooxml-schemas-1.4.jar \
+# --master local \
+# --executor-memory 8g \
+# --driver-memory 12g \
+# readexcel_apetito_riesgo_scores.py
+
 from pyspark.sql import functions as F
 from pyspark import SQLContext
 from pyspark.sql import SparkSession
