@@ -1,3 +1,6 @@
+export PYTHONIOENCODING=UTF-8
+export LC_ALL="en_US.UTF-8"
+
 spark-submit \
 --master yarn \
 --num-executors 20 \
