@@ -78,3 +78,19 @@ https://spark.apache.org/examples.html
 ````
 
 
+## Pandas
+
+```sh
+sudo yum -y install gcc
+sudo yum install python-devel
+sudo yum install libevent-devel
+
+sudo yum install epel-release
+sudo yum install python-pandas
+
+sudo pip install -U setuptools
+sudo pip install numpy==1.7.0
+sudo pip2 install pandas==0.20.3
+sudo pip install xlrd==1.2.0
+``` 
+
