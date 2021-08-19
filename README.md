@@ -94,3 +94,12 @@ sudo pip2 install pandas==0.20.3
 sudo pip install xlrd==1.2.0
 ``` 
 
+## Usar la Ñ en codigo
+
+En la primera linea del script de python se debe colocar
+
+```python
+
+# -*- coding: utf-8 -*-
+
+``` 
