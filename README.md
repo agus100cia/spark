@@ -103,3 +103,8 @@ En la primera linea del script de python se debe colocar
 # -*- coding: utf-8 -*-
 
 ``` 
+
+### Upgrade Python 3.9 en Centos
+
+https://phoenixnap.com/kb/how-to-install-python-3-centos-7
+
