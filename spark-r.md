@@ -7,6 +7,9 @@ en su lugar, debe instalarlo en un nodo de puerta de enlace con HDFS y roles de 
 ### 1.- Asegúrese de instalar R en el nodo Edge
 
 ```sh
+sudo yum -y install curl
+sudo yum -y install libcurl-devel
+sudo yum -y install libxml2-devel
 sudo yum install R
 ``` 
 
@@ -46,8 +49,10 @@ sh /opt/sparkr/spark-2.4.5-bin-hadoop2.7/bin/sparkR
 
 ```sh
 # sh /opt/sparkr/spark-2.4.5-bin-hadoop2.7/bin/sparkR
+>install.packages("readr")
+>install.packages("curl")
 >install.packages("tidyverse")
 >install.packages("ROracle")
 >install.packages("dbplyr")
-
+>install.packages("ROracle")
 ``` 
