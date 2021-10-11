@@ -41,3 +41,13 @@ sh /opt/sparkr/spark-2.4.5-bin-hadoop2.7/bin/sparkR --master yarn
 sh /opt/sparkr/spark-2.4.5-bin-hadoop2.7/bin/sparkR
 
 ``` 
+
+### 5.- Instalar parquete
+
+```sh
+# sh /opt/sparkr/spark-2.4.5-bin-hadoop2.7/bin/sparkR
+>install.packages("tidyverse")
+>install.packages("ROracle")
+>install.packages("dbplyr")
+
+``` 
