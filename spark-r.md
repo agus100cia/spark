@@ -56,3 +56,22 @@ sh /opt/sparkr/spark-2.4.5-bin-hadoop2.7/bin/sparkR
 >install.packages("dbplyr")
 >install.packages("ROracle")
 ``` 
+
+### Instalar Oracle lib
+
+```sh
+sudo wget https://download.oracle.com/otn_software/linux/instantclient/213000/oracle-instantclient-basic-21.3.0.0.0-1.x86_64.rpm
+sudo rpm -i oracle-instantclient-basic-21.3.0.0.0-1.x86_64.rpm
+
+export ORACLE_INSTANT_CLIENT_VERSION=21
+export ORACLE_YUM_URL=https://yum.oracle.com 
+export ORACLE_HOME=/usr/lib/oracle/${ORACLE_INSTANT_CLIENT_VERSION}/client64
+export ORACLE_YUM_REPO=public-yum-ol7.repo 
+export ORACLE_YUM_GPG_KEY=RPM-GPG-KEY-oracle-ol7 
+
+rpm --import ${ORACLE_YUM_URL}/${ORACLE_YUM_GPG_KEY};
+curl -o /etc/yum.repos.d/${ORACLE_YUM_REPO} ${ORACLE_YUM_URL}/${ORACLE_YUM_REPO};
+sed -i 's/enabled=1/enabled=0/g' /etc/yum.repos.d/${ORACLE_YUM_REPO}; 
+yum-config-manager --enable ol7_oracle_instantclient;
+
+```
