@@ -108,3 +108,23 @@ http://<nodename>:8787.
 ``` 
 
 Se accede con el usuario del sistema operativo
+
+### SparkSession
+
+```sh
+.libPaths(c(.libPaths(), '/opt/sparkr/spark-2.4.5-bin-hadoop2.7/R/lib'))
+Sys.setenv(SPARK_HOME = '/opt/sparkr/spark-2.4.5-bin-hadoop2.7')
+library(SparkR, lib.loc = c(file.path(Sys.getenv("SPARK_HOME"), "R", "lib")))
+
+sparkR.session(
+  master = "yarn",
+  appName = "Test_SparkR",
+  sparkHome = "/opt/sparkr/spark-2.4.5-bin-hadoop2.7",
+  sparkJars = "",
+  sparkPackages = "",
+  enableHiveSupport = TRUE
+)
+
+df0 <- sql("SELECT * FROM dwhantiguo.vw_siniestros_item")
+
+``` 
