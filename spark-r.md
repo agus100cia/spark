@@ -75,3 +75,16 @@ sed -i 's/enabled=1/enabled=0/g' /etc/yum.repos.d/${ORACLE_YUM_REPO};
 yum-config-manager --enable ol7_oracle_instantclient;
 
 ```
+
+### Configurar Zeppelin con Livy
+
+En cloudera manager => Livy => Configuracion => Buscar: livy-env.sh  Livy REST Server Advanced Configuration Snippet (Safety Valve) for livy-conf/livy-env.sh
+
+```sh
+export JAVA_HOME=/usr/java/jdk1.8.0_181-cloudera
+export SPARK_HOME=/opt/sparkr/spark-2.4.5-bin-hadoop2.7
+export SPARK_CONF_DIR=$SPARK_HOME/conf
+export HADOOP_HOME=/etc/hadoop/
+export HADOOP_CONF_DIR=/etc/hadoop/conf
+
+``` 
