@@ -90,3 +90,21 @@ export HADOOP_HOME=/etc/hadoop/
 export HADOOP_CONF_DIR=/etc/hadoop/conf
 
 ``` 
+
+### R-Studio
+
+Ref: https://techcommunity.microsoft.com/t5/sql-server/using-rstudio-server-with-microsoft-r-server-parcel-for-cloudera/ba-p/385449
+
+RStudio Server Open Source License :
+
+```sh
+wget https://download2.rstudio.org/rstudio-server-rhel-1.0.143-x86_64.rpm
+sudo yum install --nogpgcheck rstudio-server-rhel-1.0.143-x86_64.rpm
+sudo rstudio-server verify-installation
+sudo rstudio-server version
+
+http://<nodename>:8787.
+
+``` 
+
+Se accede con el usuario del sistema operativo
