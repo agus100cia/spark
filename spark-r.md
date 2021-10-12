@@ -80,6 +80,8 @@ yum-config-manager --enable ol7_oracle_instantclient;
 
 En cloudera manager => Livy => Configuracion => Buscar: livy-env.sh  Livy REST Server Advanced Configuration Snippet (Safety Valve) for livy-conf/livy-env.sh
 
+Ref: https://enterprise-docs.anaconda.com/en/latest/admin/advanced/config-livy-server.html
+
 ```sh
 export JAVA_HOME=/usr/java/jdk1.8.0_181-cloudera
 export SPARK_HOME=/opt/sparkr/spark-2.4.5-bin-hadoop2.7
