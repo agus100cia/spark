@@ -108,3 +108,94 @@ En la primera linea del script de python se debe colocar
 
 https://phoenixnap.com/kb/how-to-install-python-3-centos-7
 
+## Comparar 2 dataframes
+
+Se intenta comparar 2 dataframes y mostrar las columnas que tienen variacion
+
+- Metodo 1
+
+```py
+
+from pyspark.sql.functions import col, array, when, array_remove
+from pyspark.sql.functions import udf,lit,struct,concat_ws,when
+
+
+df1 = spark.createDataFrame([
+  [1, "ABC", 5000, "US"],
+  [2, "DEF", 4000, "UK"],
+  [3, "GHI", 3000, "JPN"],
+  [4, "JKL", 4500, "CHN"]
+], ["id", "name", "sal", "Address"])
+
+df2 = spark.createDataFrame([
+  [1, "ABC", 5000, "US"],
+  [2, "DEF", 4000, "CAN"],
+  [3, "GHI", 3500, "JPN"],
+  [4, "JKL_M", 4800, "CHN"]
+], ["id", "name", "sal", "Address"])
+
+
+columns = df1.columns
+df3 = df1.alias("d1").join(df2.alias("d2"), col("d1.id") == col("d2.id"), "left")
+
+for name in columns:
+    df3 = df3.withColumn(name + "_temp", when(col("d1." + name) != col("d2." + name), lit(name)))
+
+
+df4 = df3.withColumn("column_names", concat_ws(",", *map(lambda name: col(name + "_temp"), columns))).select("d1.*", "column_names")
+df4.show()
+
+
+``` 
+
+
+- Metodo 2
+
+```py
+
+from pyspark.sql.functions import col, array, when, array_remove
+from pyspark.sql.functions import udf,lit,struct
+
+
+df1 = spark.createDataFrame([
+  [1, "ABC", 5000, "US"],
+  [2, "DEF", 4000, "UK"],
+  [3, "GHI", 3000, "JPN"],
+  [4, "JKL", 4500, "CHN"]
+], ["id", "name", "sal", "Address"])
+
+df2 = spark.createDataFrame([
+  [1, "ABC", 5000, "US"],
+  [2, "DEF", 4000, "CAN"],
+  [3, "GHI", 3500, "JPN"],
+  [4, "JKL_M", 4800, "CHN"]
+], ["id", "name", "sal", "Address"])
+
+df = df1
+df1 = df2
+
+df2 = df.select([col(c).alias("x_"+c) for c in df.columns])
+df3 = df1.join(df2, col("id") == col("x_id"), "left")
+
+def CheckMatch(Column,r):
+    check=''
+    ColList=Column.split(",")
+    for cc in ColList:
+        if(r[cc] != r["x_" + cc]):
+            check=check + "," + cc
+    return check.replace(',','',1).split(",")
+    
+CheckMatchUDF = udf(CheckMatch)
+
+finalCol = df1.columns
+finalCol.insert(len(finalCol), "column_names")
+
+df4 = df3.withColumn("column_names", CheckMatchUDF(lit(','.join(df1.columns)),struct([df3[x] for x in df3.columns]))).select(finalCol)
+
+df4.show()
+
+
+``` 
+
+
+
