@@ -45,13 +45,25 @@ sc._gateway.jvm.org.apache.spark.sql.hive.thriftserver.HiveThriftServer2.startWi
 spark.sql("use default")
 spark.sql("show tables").show()
     
-df0 = spark.read.csv("file:///home/adminspark/CSV/Datos_de_Vuelos_qvd.CSV",header=True)
+df0 = spark.read.csv("file:///home/adminspark/datoscsvsimplificado/datos_vuelos.csv",header=True)
 df0.write.mode("overwrite").saveAsTable("default.datos_vuelos")
 
-df1 = spark.read.csv("file:///home/adminspark/CSV/aereolineas.csv",header=True)
+df1 = spark.read.csv("file:///home/adminspark/datoscsvsimplificado/aerolineas.csv",header=True)
 df1.write.mode("overwrite").saveAsTable("default.aereolineas")
 
-df2 = spark.read.csv("file:///home/adminspark/CSV/aeronaves.csv",header=True)
+df2 = spark.read.csv("file:///home/adminspark/datoscsvsimplificado/aeronaves.csv",header=True)
 df2.write.mode("overwrite").saveAsTable("default.aeronaves")
+
+df3 = spark.read.csv("file:///home/adminspark/datoscsvsimplificado/aeropuertos_origen.csv",header=True)
+df3.write.mode("overwrite").saveAsTable("default.aeropuertos_origen")
+
+df4 = spark.read.csv("file:///home/adminspark/datoscsvsimplificado/tipos_de_aeronave.CSV",header=True)
+df4.write.mode("overwrite").saveAsTable("default.tipos_de_aeronave")
+
+df5 = spark.read.csv("file:///home/adminspark/datoscsvsimplificado/tipos_de_aerolinea.csv",header=True)
+df5.write.mode("overwrite").saveAsTable("default.tipos_de_aerolinea")
+
+df6 = spark.read.csv("file:///home/adminspark/datoscsvsimplificado/aeropuertos_destino.csv",header=True)
+df6.write.mode("overwrite").saveAsTable("default.aeropuertos_destino")
 
 ``` 
