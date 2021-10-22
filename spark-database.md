@@ -28,6 +28,7 @@ from pyspark.sql.types import *
 from pyspark import SparkContext, SparkConf
 from pyspark.sql import SparkSession
 from py4j.java_gateway import java_import
+import time
 
 spark = SparkSession \
     .builder \
@@ -71,4 +72,16 @@ df5.write.mode("overwrite").saveAsTable("default.tipos_de_aerolinea")
 df6 = spark.read.csv("file:///home/adminspark/datoscsvsimplificado/aeropuertos_destino.csv",header=True)
 df6.write.mode("overwrite").saveAsTable("default.aeropuertos_destino")
 
+while True:
+  time.sleep(5)
+  
+``` 
+
+
+```sh
+
+./spark/bin/spark-submit \
+  --master spark://localhost:7077 \
+  --total-executor-cores 2 \
+  ./thriftserver-in-context.py
 ``` 
