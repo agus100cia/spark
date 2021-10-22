@@ -37,6 +37,9 @@ spark = SparkSession \
     .config('hive.server2.thrift.port', '10000') \
     .getOrCreate()
     
+spark.sql.warehouse.dir('file:/home/adminspark/spark-2.4.5-bin-hadoop2.7/bin/spark-warehouse/')
+
+
 sc=spark.sparkContext
 sc.setLogLevel('ERROR')
 
