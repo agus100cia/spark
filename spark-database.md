@@ -8,9 +8,10 @@ Se puede usar Spark como Base de datos.
 - 4.- Levantar el servicio Thrift de Spark
 
 ```sh
+
 ./sbin/start-thriftserver.sh  --hiveconf hive.server2.thrift.port=10001 --conf spark.executor.cores=4 --master spark://23.101.141.196:7077
 
-```. 
+``` 
 
 - 5.- Iniciar Pyspark con conector a thrift
 
