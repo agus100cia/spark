@@ -1,5 +1,7 @@
 ## Spark como Database
 
+NOTA: Los datos se guardan en la carpeta spark-warehouse , esta carpeta se crea en el folder donde se ejecuta spark-submit o pyspark o spark-shell
+
 Se puede usar Spark como Base de datos.
 
 - 1.- Descargar Spark
