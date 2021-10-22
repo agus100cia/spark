@@ -32,11 +32,11 @@ spark = SparkSession \
     .appName('spark') \
     .enableHiveSupport()\
     .config('spark.sql.hive.thriftServer.singleSession', True)\
-    .config('hive.server2.thrift.port', '10001') \
+    .config('hive.server2.thrift.port', '10000') \
     .getOrCreate()
     
 sc=spark.sparkContext
-sc.setLogLevel('INFO')
+sc.setLogLevel('ERROR')
 
 #Order matters! 
 java_import(sc._gateway.jvm, "")
