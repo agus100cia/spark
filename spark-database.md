@@ -36,9 +36,9 @@ spark = SparkSession \
     .enableHiveSupport()\
     .config('spark.sql.hive.thriftServer.singleSession', True)\
     .config('hive.server2.thrift.port', '10000') \
+    .config("spark.sql.warehouse.dir",'file:/home/adminspark/spark-2.4.5-bin-hadoop2.7/bin/spark-warehouse/')\
     .getOrCreate()
     
-spark.sql.warehouse.dir('file:/home/adminspark/spark-2.4.5-bin-hadoop2.7/bin/spark-warehouse/')
 
 
 sc=spark.sparkContext
