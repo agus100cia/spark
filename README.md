@@ -197,5 +197,40 @@ df4.show()
 
 ``` 
 
+## Leer excel con Pandas
+
+```python
+
+import pandas
+from pyspark.sql import SparkSession
+from datetime import datetime
+import argparse
+
+# encoding=utf8
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+timestart = datetime.now()
+
+var="cathomutc"
+vFilePath="/home/admin/archivo/{var}.xlsx".format(var=var)
+vHoja='DATA'
+
+
+pandasDF = pandas.read_excel(io = vFilePath, sheet_name = vHoja)
+pandasDFStr = pandasDF.astype(str)
+
+spark = SparkSession.builder.appName("readexcelpandas").enableHiveSupport().getOrCreate()
+df0 = spark.createDataFrame(pandasDFStr)
+df0.printSchema()
+df0.repartition(1).write.mode("overwrite").saveAsTable("externo.{var}".format(var=var))
+
+spark.stop()
+
+timeend = datetime.now()
+duracion = timeend - timestart
+print("Duracion {vDuracion}".format(vDuracion=duracion))
+
+``` 
 
 
