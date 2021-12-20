@@ -46,4 +46,14 @@ export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 export PYSPARK_PYTHON=python3
 
 
+```
+
+Para iniciar Jupyter
+
+```sh
+cd /folder/project
+pipenv shell
+pyspark
+(Se abre el navegador con Jupyter)
+
 ``` 
