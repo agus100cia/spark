@@ -7,6 +7,17 @@ Por eso he decidido crear este repositorio para ir agregando mis experiencias co
 
 Espero les sirva tanto como a mí
 
+## Verificar si la tabla existe
+
+```sh
+if spark._jsparkSession.catalog().tableExists('respaldo', 'tab_hdocument_filedata'):
+  print("Si existe")
+else:
+  print("no existe")
+  
+
+```
+
 ## CASO DE USO SPARK
 
 Felipao gracias por tu ayuda. 
