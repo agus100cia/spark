@@ -15,6 +15,9 @@ python get-pip.py
 
 ```sh
 sudo pip install notebook
+o
+sudo pip install --user --upgrade jupyter
+
 sudo pip install findspark
 ``` 
 
