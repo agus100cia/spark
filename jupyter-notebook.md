@@ -50,6 +50,7 @@ from pyspark.sql import SparkSession
 spark = SparkSession.\
     builder.\
     appName("jupyter").\
+    master("yarn").\
     enableHiveSupport(). \
     config('spark.sql.debug.maxToStringFields', 100). \
     config('spark.debug.maxToStringFields', 100). \
