@@ -36,7 +36,7 @@ export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 export SPARK_HOME=/opt/cloudera/parcels/CDH/lib/spark
 export JAVA_HOME=/usr/java/jdk1.8.0_181-cloudera/
 
-jupyter notebook --ip=0.0.0.0 --port=8880 > /var/log/jupyter/jupyter.log  2>&1 &
+jupyter notebook --ip=0.0.0.0 --port=8880 --notebook-dir=/jupyter > /var/log/jupyter/jupyter.log  2>&1 &
 
 ``` 
 
