@@ -1,13 +1,19 @@
 ## Instalar Jupyter notebook
 
 ```sh
-##Prepara
 sudo mkdir -p /var/log/jupyter
 sudo chown -R admin:admin /var/log/jupyter
+```
+## Instala pip 20.3
 
+```sh
+wget https://bootstrap.pypa.io/pip/2.7/get-pip.py 
+python get-pip.py
+``` 
 
 ## instalar Jupyter
-pip install notebook
+ 
+sudo pip install notebook
 pip install findspark
 
 ## Crea la carpeta de los notebooks
