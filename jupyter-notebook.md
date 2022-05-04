@@ -31,7 +31,7 @@ sudo chown -R admin:admin /jupyter
 ## Levantar el servicio
 
 ```sh
-export PYSPARK_DRIVER_PYTHON=jupyter
+export PYSPARK_DRIVER_PYTHON=/jupyter
 export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
 export SPARK_HOME=/opt/cloudera/parcels/CDH/lib/spark
 export JAVA_HOME=/usr/java/jdk1.8.0_181-cloudera/
