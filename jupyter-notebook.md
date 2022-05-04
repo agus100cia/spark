@@ -15,7 +15,7 @@ python get-pip.py
 
 ```sh
 sudo pip install notebook
-pip install findspark
+sudo pip install findspark
 ``` 
 
 ## Crea la carpeta de los notebooks
