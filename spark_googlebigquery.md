@@ -76,6 +76,12 @@ Asegurate de usar la version adecuada para Scala 2.11 o 2.12
 - Scala 2.11. : com.google.cloud.spark:spark-bigquery-with-dependencies_2.11:0.17.1
 - Scala 2.12. : com.google.cloud.spark:spark-bigquery-with-dependencies_2.12:0.17.1
 
+```sh
+pyspark --packages com.google.cloud.spark:spark-bigquery-with-dependencies_2.11:0.17.1
+
+```
+ 
+
 ```python
 
 from pyspark.sql import SparkSession
