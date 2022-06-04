@@ -105,5 +105,12 @@ df.printSchema()
 
 ``` 
 
+```sh
+spark-submit \
+--master local \
+--packages com.google.cloud.spark:spark-bigquery-with-dependencies_2.11:0.17.1 \
+--jars /home/admin/spark/spark-2.4.5-bin-hadoop2.7/jars/mysql-connector-java-5.1.47.jar  \
+sparktogcp.py 
 
+``` 
 
