@@ -25,6 +25,7 @@ brew install jupyter
 pip3 install jupyter
 pip3 install pyspark
 ## Define variables de ambiente
+export PYSPARK_PYTHON=/bin/python3
 ## export SPARK_HOME=/Users/agus/DocsLocal/spark/spark-2.4.5-bin-hadoop2.7
 export SPARK_HOME=/Users/agus/DocsLocal/spark/spark-3.0.0-bin-hadoop2.7
 export PATH=$PATH:$SPARK_HOME/bin
