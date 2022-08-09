@@ -21,10 +21,12 @@ sudo yum install python34-devel
 sudo yum install python36-devel
 sudo yum install lsof
 
+
 sudo python3 -m pip install --upgrade setuptools
 sudo python3 -m pip install --upgrade setuptools_scm
 sudo python3 -m pip install --upgrade cffi
 sudo python3 -m pip install JayDeBeApi
+sudo python3 -m pip install impyla
 sudo python3 -m pip install notebook
 o
 sudo pip install --user --upgrade jupyter
