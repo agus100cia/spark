@@ -19,6 +19,7 @@ sudo yum install libevent-devel
 sudo yum -y install gcc
 sudo yum install python34-devel
 sudo yum install python36-devel
+sudo yum install lsof
 
 sudo python3 -m pip install --upgrade setuptools
 sudo python3 -m pip install --upgrade setuptools_scm
