@@ -27,6 +27,7 @@ sudo python3 -m pip install --upgrade setuptools_scm
 sudo python3 -m pip install --upgrade cffi
 sudo python3 -m pip install JayDeBeApi
 sudo python3 -m pip install impyla
+sudo python3 -m pip install matplotlib==3.2.0
 sudo python3 -m pip install notebook
 o
 sudo pip install --user --upgrade jupyter
