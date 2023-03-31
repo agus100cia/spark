@@ -1,6 +1,18 @@
 # SingleStoreDB Spark Connector
 ## Version: 4.1.2 [![License](http://img.shields.io/:license-Apache%202-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
+```sh
+wget https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.7.9/mariadb-java-client-2.7.9.jar
+wget https://repo1.maven.org/maven2/com/singlestore/singlestore-spark-connector_2.11/3.0.7-spark-2.4.4/singlestore-spark-connector_2.11-3.0.7-spark-2.4.4.jar
+
+pyspark \
+--master local \
+--driver-memory 4G \
+--executor-memory 4G \
+--jars /var/lib/sqoop/spark-mssql-connector-1.0.2.jar,/var/lib/sqoop/singlestore-spark-connector_2.11-3.0.7-spark-2.4.4.jar,/var/lib/sqoop/mariadb-java-client-2.7.9.jar
+
+``` 
+
 ## Getting Started
 
 You can find the latest version of the connector on Maven Central and
