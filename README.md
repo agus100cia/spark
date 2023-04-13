@@ -1,4 +1,22 @@
 # spark
+
+```sh
+spark = SparkSession. \
+        builder. \
+        appName("mtr_transaccional"). \
+        config("spark.sql.legacy.allowCreatingManagedTableUsingNonemptyLocation","true").\
+        enableHiveSupport(). \
+        getOrCreate()
+spark.sparkContext.setLogLevel("ERROR")
+
+``` 
+
+- config("spark.sql.legacy.allowCreatingManagedTableUsingNonemptyLocation","true") Evita el error de 
+
+pyspark.sql.utils.AnalysisException: u"Can not create the managed table('`stage`.`masterpersona_00`'). The associated location('hdfs://nodo1.asegsur3.local:8020/user/hive/warehouse/stage.db/masterpersona_00') already exists.;"
+
+
+
 Notas de desarrollo en spark
 
 Dado que el desarrollo BigData para américa latina es bastante limitado, es difícil encontrar fuentes de información o pedazos de código que nos ayuden a desarrollar programas de análisis de datos con spark en español.
